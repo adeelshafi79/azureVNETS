@@ -83,3 +83,38 @@ This repository provides a comprehensive guide to various Azure services and inc
 - **Question:** How can Azure Private Link be used with Cosmos DB to enhance security?
   - **Answer:** Use Azure Private Link with Cosmos DB to establish a private endpoint, ensuring data never traverses the public internet.
 
+  ## Azure VMs
+
+| Name | Resource Group | Location       | Zones |
+|------|----------------|----------------|-------|
+| vm1  | RG-WEEK2       | australiaeast  | 1     |
+| vm2  | RG-WEEK2       | australiaeast  | 1     |
+
+## Azure VNets
+
+| Name  | Resource Group | Location       | NumSubnets | Prefixes       | DnsServers | DDOSProtection | VMProtection |
+|-------|----------------|----------------|------------|----------------|------------|----------------|--------------|
+| vnet1 | rg-week2       | australiaeast  | 1          | 10.0.0.0/16    |            | False          |              |
+| vnet2 | rg-week2       | australiaeast  | 1          | 192.168.0.0/16 |            | False          |              |
+
+## VNet Peering
+
+| Name         | PeeringState |
+|--------------|--------------|
+| vnet1-vnet2  | Connected    |
+
+## VM Details
+
+### VM1
+
+| PublicIP   | PrivateIP |
+|------------|-----------|
+| 20.11.1.102| 10.0.0.4  |
+
+### VM2
+
+| PublicIP   | PrivateIP   |
+|------------|-------------|
+| 20.11.1.110| 192.168.0.4 |
+
+
