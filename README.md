@@ -85,6 +85,87 @@ This repository provides a comprehensive guide to various Azure services and inc
 
   ## Azure VMs
 
+  # Azure VPN Solutions
+
+Azure Virtual Private Network (VPN) solutions provide secure, encrypted connections between your on-premises network and Azure, or between different Azure regions. Azure offers two main types of VPN connections: Site-to-Site VPN and Point-to-Site VPN.
+
+## Key Features
+- **Security**: Encrypted connections ensure secure data transmission.
+- **Scalability**: Support for multiple connections and configurations.
+- **Flexibility**: Options for different network topologies and architectures.
+- **Integration**: Seamlessly integrates with Azure Virtual Network (VNet) and other Azure services.
+- **Global Reach**: Connect across regions and to on-premises networks.
+
+## Use Cases
+- Securely extend on-premises networks to Azure
+- Connect Azure VNets across regions
+- Provide remote access to Azure VNets for individual clients
+- Enable hybrid cloud architectures
+
+## Azure VPN Types
+
+### Site-to-Site VPN
+Establishes a secure connection between your on-premises network and an Azure VNet over an IPsec/IKE VPN tunnel. It can also connect VNets across different Azure regions.
+
+#### Key Features
+- **Persistent Connection**: Always-on connection for continuous access.
+- **Multiple Sites**: Supports connections from multiple on-premises sites.
+- **Redundancy**: Options for active-active and active-passive configurations for high availability.
+
+#### Creating a Site-to-Site VPN
+
+1. **Create a Virtual Network Gateway**
+   Use the Azure portal, Azure CLI, or PowerShell to create a VPN gateway in the target VNet.
+
+2. **Configure On-Premises VPN Device**
+   Set up your on-premises VPN device to establish a connection to the Azure VPN gateway.
+
+3. **Create a Local Network Gateway**
+   Define the on-premises network configuration in Azure.
+
+4. **Create the VPN Connection**
+   Establish the VPN connection between the local network gateway and the virtual network gateway.
+
+### Point-to-Site VPN
+Allows individual clients to securely connect to an Azure VNet from anywhere. This type of connection uses Secure Socket Tunneling Protocol (SSTP) or OpenVPN.
+
+#### Key Features
+- **Remote Access**: Securely connects individual clients to Azure VNets.
+- **Flexible Authentication**: Supports Azure AD, RADIUS, and certificate-based authentication.
+- **Easy Setup**: Simple client configuration with VPN client packages.
+
+#### Creating a Point-to-Site VPN
+
+1. **Create a Virtual Network Gateway**
+   Use the Azure portal, Azure CLI, or PowerShell to create a VPN gateway in the target VNet.
+
+2. **Configure Point-to-Site VPN Settings**
+   Define the VPN client address pool, authentication type, and root certificates.
+
+3. **Download VPN Client Configuration**
+   Provide the VPN client configuration package to the clients.
+
+4. **Connect Clients**
+   Clients install the VPN client and establish a connection to the Azure VNet.
+
+## VPN Connections Within and Across Regions
+
+### Within Region
+Both Site-to-Site and Point-to-Site VPNs can be used to connect resources within the same Azure region.
+
+### Across Regions
+Site-to-Site VPNs are typically used to connect VNets across different Azure regions or between Azure regions and on-premises networks.
+
+## Resources
+
+- [Azure VPN Gateway Documentation](https://docs.microsoft.com/azure/vpn-gateway/)
+- [Site-to-Site VPN Documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+- [Point-to-Site VPN Documentation](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-about)
+- [Azure CLI Documentation](https://docs.microsoft.com/cli/azure/network/vpn-gateway)
+- [Azure PowerShell Documentation](https://docs.microsoft.com/powershell/module/az.network/new-azvpngateway)
+
+## Practical Overview
+
 | Name | Resource Group | Location       | Zones |
 |------|----------------|----------------|-------|
 | vm1  | RG-WEEK2       | australiaeast  | 1     |
